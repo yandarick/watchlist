@@ -2,19 +2,24 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}" type="text/css">
     <title>{{ name }}'s Watchlist</title>
+    <link rel="icon" href="{{ url_for('static', filename='favicon.ico') }}">
 </head>
 <body>
-    <h2>{{ name }}'s Watchlist</h2>
+    <h2>
+    <img alt="panda1" class="panda1" src="{{ url_for('static', filename='images/panda1.jpg') }}">
+    {{ name }}'s Watchlist</h2>
     {# 使用 length 过滤器获取 movies 变量的长度 #}
     <p>{{ movies|length }} Titles</p>
-    <ul>
+    <ul class="movie-list">
         {% for movie in movies %}  {# 迭代 movies 变量 #}
         <li>{{ movie.title }} - {{ movie.year }}</li>  {# 等同于 movie['title'] #}
         {% endfor %}  {# 使用 endfor 标签结束 for 语句 #}
     </ul>
+    <img alt="panda2" class="panda2" src="{{ url_for('static', filename='images/panda2.gif') }}">
     <footer>
-        <small>&copy; 2018 <a href="http://helloflask.com/tutorial">HelloFlask</a></small>
+        <small>&copy; 2022 <a href="http://ricktech.tk">ricktech</a></small>
     </footer>
 </body>
 </html>
