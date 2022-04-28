@@ -84,9 +84,10 @@ def forge():
 @click.option('--password', prompt=True, hide_input=True, confirmation_prompt=True, help='The password used to login.')
 def admin(username, password):
     """Create user."""
-    # db.create_all()
+    db.create_all()
 
     user = User.query.filter_by(username=username).first()
+    print(user)
     # user = User.query.first()
     if user is not None:
         click.echo('Updating user...')
